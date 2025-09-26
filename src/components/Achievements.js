@@ -7,151 +7,219 @@ import {
   Card,
   CardContent,
   Divider,
-  Chip, 
-  Button
+  Tabs,
+  Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Chip,
+  TablePagination,
 } from "@material-ui/core";
-import {achievements} from '../data/achievements-data'
-import CustomRating from "./CustomRating";
+import { achievements } from "../data/achievements-data";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  mainContainer: {
     background: "#233",
     minHeight: "100vh",
-    padding: theme.spacing(4),
+    padding: theme.spacing(3),
+  },
+  heading: {
+    color: "tomato",
+    padding: "2rem 0",
+    textTransform: "uppercase",
+    textAlign: "center",
   },
   card: {
-    background: "#2c2c2c",
-    color: "white",
-    margin: theme.spacing(2, 0),
-    borderRadius: 12,
-    boxShadow: "0 6px 20px rgba(0,0,0,0.35)",
-  },
-  title: {
-    color: "tan",
-    fontWeight: 700,
-  },
-  meta: {
-    color: "#bcd",
-    fontSize: "0.95rem",
-    marginBottom: theme.spacing(1),
-  },
-  badge: {
-    marginRight: theme.spacing(1),
-    marginTop: theme.spacing(1),
-    background: "tomato",
+    background: "#2b2b2b",
     color: "#fff",
-    fontWeight: 600,
-  },
-  pagination: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: theme.spacing(1),
-    marginTop: theme.spacing(3),
-  },
-  pageBtn: {
-    minWidth: 40,
-  },
-  activePage: {
-    background: "tan",
-    color: "#111",
+    borderRadius: "12px",
+    boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+    margin: theme.spacing(2),
+    padding: theme.spacing(2),
+    transition: "0.3s",
     "&:hover": {
-      background: "#d5b27a",
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 24px rgba(0,0,0,0.5)",
     },
   },
-  navBtn: {
-    minWidth: 90,
+  achievementTitle: {
+    fontWeight: "bold",
+    color: "tan",
+  },
+  orgYear: {
+    fontWeight: "bold",
+    color: "tomato",
+  },
+  badges: {
+    marginTop: theme.spacing(1),
+    "& > *": {
+      marginRight: theme.spacing(1),
+      background: "tomato",
+      color: "yellow",
+    },
+    
+  },
+  tabRoot: {
+    color: "tan",
+    fontWeight: "bold",
+  },
+  tableContainer: {
+    background: "#2b2b2b",
+    borderRadius: "12px",
+    boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+    marginTop: theme.spacing(4),
+  },
+  tableHeader: {
+    background: "#444",
+  },
+  tableCell: {
+    color: "tan",
+    fontWeight: "bold",
+  },
+  star: {
+    color: "#FFD700",
+    marginRight: theme.spacing(0.5),
   },
 }));
 
-// 🔹 Assign stars based on industry value (example)
-const industryStars = {
-  Microsoft: 5,
-  Oracle: 4,
-  MongoDB: 4,
-  Neo4J: 3,
-};
-const Achievements = ({itemsPerPage=5}) => {
+// Optional: sort achievements by "industryValue" descending if exists
+const sortedAchievements = [...achievements].sort(
+  (a, b) => (b.year || 0) - (a.year || 0)
+);
+
+const Achievements = () => {
   const classes = useStyles();
-  const [page, setPage] = useState(1);
+  const [tabValue, setTabValue] = useState(0);
 
-  const totalPages = Math.max(1, Math.ceil(achievements.length / itemsPerPage));
-  const start = (page - 1) * itemsPerPage;
-  const displayed = achievements.slice(start, start + itemsPerPage);
+  // Pagination state
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const goTo = (p) => setPage(Math.min(Math.max(1, p), totalPages));
+  const handleChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  // Paginated achievements
+  const paginatedAchievements = sortedAchievements.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
 
   return (
-    <Box className={classes.root}>
-      <Typography variant="h4" align="center" style={{ color: "tomato", textTransform: "uppercase", marginBottom: 10 }} gutterBottom>
-        🎖 Achievements & Certifications
+    <Box component="div" className={classes.mainContainer}>
+      <Typography variant="h4" className={classes.heading}>
+        My Achievements
       </Typography>
+      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
 
-      <Divider style={{ background: "tan", marginBottom: 20, width: "70%", marginLeft: "auto", marginRight: "auto" }} />
+      {/* Tabs */}
+      <Tabs value={tabValue} onChange={handleChange} indicatorColor="secondary" centered>
+        <Tab label="Card View" className={classes.tabRoot} />
+        <Tab label="Table View" className={classes.tabRoot} />
+      </Tabs>
 
-      <Grid container justify="center">
-        {displayed.map((ach, idx) => (
-          <Grid item xs={12} sm={10} md={8} key={start + idx}>
-            <Card className={classes.card}>
-              <CardContent>
-                <Typography variant="h6" className={classes.title}>
-                  {ach.title}
-                </Typography>
-                <Typography className={classes.meta}>
-                  {ach.org} • {ach.year}
-                </Typography>
-
-                <Typography style={{ color: "#ddd", marginTop: 6 }}>
-                  {ach.description || ""}
-                </Typography>
-                {/* Custom Stars */}
-                <div className={classes.starsContainer}>
-                  <CustomRating value={industryStars[ach.org] || 0} org={ach.org} />
-                </div>
-                <Box mt={1}>
-                  {Array.isArray(ach.badges) &&
-                    ach.badges.map((b, i) => (
-                      <Chip key={i} label={b} size="small" className={classes.badge} />
+      {/* Card View */}
+      {tabValue === 0 && (
+        <Grid container justifyContent="center" spacing={3} style={{ marginTop: "2rem" }}>
+          {sortedAchievements.map((ach, i) => (
+            <Grid item xs={12} sm={6} md={4} key={i}>
+              <Card className={classes.card}>
+                <CardContent>
+                  <Typography variant="h6" className={classes.achievementTitle}>
+                    {ach.title}{" "}
+                    {Array.from({ length: ach.stars || 0 }).map((_, idx) => (
+                      <span key={idx} className={classes.star}>★</span>
                     ))}
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" className={classes.orgYear}>
+                    {ach.org} : {ach.year} {ach.expiry !== '--'?'- ' + ach.expiry: ''} {ach.renewed !== '--'?'(Renewed on: ' + ach.renewed +')':'' }
+                  </Typography>
+                  <Typography variant="body2" style={{ marginTop: "0.5rem" }}>
+                    {ach.description}
+                  </Typography>
+                  {ach.badges && (
+                    <div className={classes.badges}>
+                      {ach.badges.map((badge, idx) => (
+                        <Chip key={idx} label={badge} size="small" className={classes.tabRoot} />
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
-      {/* custom pagination controls */}
-      <Box className={classes.pagination}>
-        <Button
-          variant="outlined"
-          className={classes.navBtn}
-          onClick={() => goTo(page - 1)}
-          disabled={page === 1}
-        >
-          Previous
-        </Button>
+      {/* Table View with Pagination */}
+      {tabValue === 1 && (
+        <Paper className={classes.tableContainer}>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow className={classes.tableHeader}>
+                  <TableCell className={classes.tableCell}>Title</TableCell>
+                  <TableCell className={classes.tableCell}>Org</TableCell>
+                  <TableCell className={classes.tableCell}>Year</TableCell>
+                  <TableCell className={classes.tableCell}>Expiry</TableCell>
+                  <TableCell className={classes.tableCell}>Renewed on</TableCell>
+                  <TableCell className={classes.tableCell}>Badges</TableCell>
+                  <TableCell className={classes.tableCell}>Stars</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {paginatedAchievements.map((ach, i) => (
+                  <TableRow key={i}>
+                    <TableCell className={classes.achievementTitle}>{ach.title}</TableCell>
+                    <TableCell className={classes.orgYear}>{ach.org}</TableCell>
+                    <TableCell className={classes.orgYear}>{ach.year}</TableCell>
+                    <TableCell className={classes.orgYear}>{ach.expiry}</TableCell>
+                    <TableCell className={classes.orgYear}>{ach.renewed}</TableCell>
+                    <TableCell>
+                      {ach.badges && (
+                            <div className={classes.badges}>
+                            {ach.badges.map((badge, idx) => (
+                                <Chip key={idx} label={badge} size="small" className={classes.tabRoot} />
+                            ))}
+                            </div>
+                        )}
+                    </TableCell>
+                    <TableCell>
+                      {Array.from({ length: ach.stars || 0 }).map((_, idx) => (
+                        <span key={idx} className={classes.star}>★</span>
+                      ))}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
 
-        {/* simple page-number buttons (for few pages this is fine) */}
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-          <Button
-            key={p}
-            onClick={() => goTo(p)}
-            variant={p === page ? "contained" : "outlined"}
-            className={`${classes.pageBtn} ${p === page ? classes.activePage : ""}`}
-          >
-            {p}
-          </Button>
-        ))}
-
-        <Button
-          variant="outlined"
-          className={classes.navBtn}
-          onClick={() => goTo(page + 1)}
-          disabled={page === totalPages}
-        >
-          Next
-        </Button>
-      </Box>
+          {/* Pagination */}
+          <TablePagination style={{color: 'white'}}
+            rowsPerPageOptions={[5, 10, 15]}
+            component="div"
+            count={sortedAchievements.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </Paper>
+      )}
     </Box>
   );
 };

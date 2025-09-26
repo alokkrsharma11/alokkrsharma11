@@ -77,11 +77,11 @@ const Education = () => {
   return (
     <Box component="div" className={classes.mainContainer}>
       <Typography variant="h4" className={classes.heading}>
-        Education
+        My Education
       </Typography>
       <Divider style={{ background: "tan", marginBottom: "2rem" }} />
 
-      <Grid container justify="center" spacing={3}>
+      <Grid container justifyContent="center" spacing={3}>
         {education.map((edu, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card className={classes.card}>

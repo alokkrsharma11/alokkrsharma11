@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <Box className={classes.typedContainer}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Avatar className={classes.avatar} src={avatar} alt="Alok Kumar Sharma" />
       </Grid>
       <Typography className={classes.title} variant="h4">

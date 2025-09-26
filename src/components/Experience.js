@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -119,6 +120,7 @@ const Experience = () => {
       <Typography variant="h4" align="center" className={classes.heading}>
         Working Experience
       </Typography>
+      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
       <Box component="div" className={classes.timeLine}>
         <Typography
           variant="h2"

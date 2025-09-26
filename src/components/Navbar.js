@@ -65,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     color: "tan",
   },
+  heading: {
+    color: "tomato",
+    textTransform: "camelcase",
+  },
 }));
 
 const menuItems = [
@@ -84,7 +88,7 @@ const menuItems = [
   { listIcon: <MailIcon />, listText: "Contact", listPath: "/contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({title}) => {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -118,13 +122,15 @@ const Navbar = () => {
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
-            
             <Typography variant="h5" className={classes.title}>
               About Me
             </Typography>
             <IconButton onClick={() => setOpen(true)}>
               <ArrowForward className={classes.arrow} />
             </IconButton>
+            <Typography variant="h5" align="center" className={classes.heading}>
+              {title}
+            </Typography>
           </Toolbar>
         </AppBar>
       </Box>

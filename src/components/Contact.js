@@ -30,8 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: "1rem",
-    color: "tomato",
+    color: "#fff",
+    backgroundColor: "tomato",
     borderColor: "tan",
+    "&:hover": {
+      color: "#000",
+      backgroundColor: "tan",
+    }
   },
   field: {
     margin: "1rem 0rem",
@@ -65,7 +70,7 @@ const Contact = () => {
   const classes = useStyles();
   return (
     <Box component="div" className={classes.contactContainer}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Box component="form" className={classes.form}>
           <Typography variant="h5" className={classes.heading}>
             Hire or Contact me...

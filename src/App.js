@@ -6,17 +6,39 @@ import Experience from "./components/Experience";
 import Navbar from "./components/Navbar";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
+import { useLocation } from "react-router-dom";
 
 import "./App.css";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 
+
+function ContextPathReader() {
+  const location = useLocation();
+  const contextPath = "/" + location.pathname.split("/")[1];
+  console.log(contextPath);
+  return contextPath;
+}
+
+const titles = {
+  '/experience': "Experience",
+  '/education': "Education",
+  '/skills': "Skills",
+  '/achievements': "Achievements",
+  '/project': "Projects",
+  '/contact': "Contact",
+};
+
+
 function App() {
+
+const currentContext = ContextPathReader();
+const title = titles[currentContext] || "Home";
   return (
     <React.Fragment>
       <CssBaseline />
-      <Navbar />
+      <Navbar title={title}/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/experience" component={Experience} />
