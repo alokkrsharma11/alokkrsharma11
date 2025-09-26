@@ -12,7 +12,6 @@ import "./App.css";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
-import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function ContextPathReader() {
   const location = useLocation();
