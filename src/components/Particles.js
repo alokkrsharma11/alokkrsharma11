@@ -1,6 +1,7 @@
 import React from "react";
-import { Particles as ReactParticles } from "react-particles-js";
+import { Particles as ReactParticles } from "react-tsparticles";
 import { makeStyles } from "@material-ui/core/styles";
+import { loadFull } from "tsparticles";
 
 const useStyles = makeStyles((theme) => ({
   particlesCanvas: {
@@ -11,10 +12,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Particles = () => {
   const classes = useStyles();
+  const particlesInit = async (engine) => {
+    await loadFull(engine); // loads tsparticles bundle
+  };
 
   return (
     <ReactParticles
-      canvasClassName={classes.particlesCanvas}
+    id="tsparticles"
+      init={particlesInit}
+      options={{
+        particles: {
+          number: { value: 50 },
+          size: { value: 3 },
+        },
+      }}
+      /**canvasClassName={classes.particlesCanvas}
       params={{
         particles: {
           number: {
@@ -52,7 +64,7 @@ const Particles = () => {
             },
           },
         },
-      }}
+      }}*/
     />
   );
 };
