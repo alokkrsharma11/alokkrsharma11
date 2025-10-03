@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     color: "tan",
   },
   subText: {
-    color: "#bbb",
+    color: "tomato",
     fontSize: "0.9rem",
   },
 }));

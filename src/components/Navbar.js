@@ -40,7 +40,7 @@ import { ArrowForward } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    background: "#222",
+    background: "#19191aff",
     margin: 0,
     textAlign: "right"
   },
@@ -84,7 +84,7 @@ const menuItems = [
   { listIcon: <SchoolIcon />, listText: "Education", listPath: "/education" },
   { listIcon: <BuildIcon />, listText: "Skills", listPath: "/skills" },
   { listIcon: <EmojiEventsIcon />, listText: "Achievements", listPath: "/achievements" },
-  { listIcon: <DescriptionIcon />, listText: "Blog", listPath: "/blog" },
+  { listIcon: <DescriptionIcon />, listText: "Highlights", listPath: "/highlights" },
   { listIcon: <MailIcon />, listText: "Contact", listPath: "/contact" },
 ];
 

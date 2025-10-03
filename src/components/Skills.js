@@ -239,6 +239,14 @@ const Skills = () => {
             page={page}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
+            sx={{
+            "& .MuiTablePagination-root": {
+              color: "#d2b48c !important",  
+            },
+            "& .MuiSvgIcon-root": {
+              color: "#d2b48c !important",  
+            }
+            }}
           />
         </Paper>
       )}

@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     color: "tomato",
   },
+  year: {
+    fontWeight: "bold",
+    color: "white",
+  },
   badges: {
     marginTop: theme.spacing(1),
     "& > *": {
@@ -185,9 +189,9 @@ const Achievements = () => {
                   <TableRow key={i}>
                     <TableCell className={classes.achievementTitle}>{ach.title}</TableCell>
                     <TableCell className={classes.orgYear}>{ach.org}</TableCell>
-                    <TableCell className={classes.orgYear}>{ach.year}</TableCell>
-                    <TableCell className={classes.orgYear}>{ach.expiry}</TableCell>
-                    <TableCell className={classes.orgYear}>{ach.renewed}</TableCell>
+                    <TableCell className={classes.year}>{ach.year}</TableCell>
+                    <TableCell className={classes.year}>{ach.expiry}</TableCell>
+                    <TableCell className={classes.year}>{ach.renewed}</TableCell>
                     <TableCell>
                       {ach.badges && (
                             <div className={classes.badges}>
@@ -217,6 +221,14 @@ const Achievements = () => {
             page={page}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
+            sx={{
+            "& .MuiTablePagination-root": {
+              color: "#d2b48c !important",  
+            },
+            "& .MuiSvgIcon-root": {
+              color: "#d2b48c !important",  
+            }
+            }}
           />
         </Paper>
       )}

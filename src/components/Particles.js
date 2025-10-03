@@ -1,17 +1,17 @@
 import React from "react";
 import { Particles as ReactParticles } from "react-tsparticles";
-import { makeStyles } from "@material-ui/core/styles";
+//import { makeStyles } from "@material-ui/core/styles";
 import { loadFull } from "tsparticles";
 
-const useStyles = makeStyles((theme) => ({
-  particlesCanvas: {
-    position: "fixed",
-    opacity: "0.3"
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   particlesCanvas: {
+//     position: "fixed",
+//     opacity: "0.3"
+//   },
+// }));
 
 const Particles = () => {
-  const classes = useStyles();
+  //const classes = useStyles();
   const particlesInit = async (engine) => {
     await loadFull(engine); // loads tsparticles bundle
   };

@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     color: "tan",
   },
+  name: {
+    color: "tan",
+    fontWeight: "bold"
+  },
   heading: {
     color: "tomato",
     padding: "3rem 0",
@@ -84,7 +88,7 @@ const Project = () => {
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card className={classes.cardContainer}>
                   <CardContent className={classes.cardContent}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6"  className={classes.name} gutterBottom>
                       {project.name}
                     </Typography>
                     <Typography variant="body2" className={classes.description}>
