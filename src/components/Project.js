@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Box,
@@ -11,6 +11,7 @@ import {
   Chip,
 } from "@material-ui/core";
 import { projects } from '../data/projects-data';
+import ProjectShowMore from "./ProjectShowMore";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 2),
   },
 }));
+
 /*
 const groupedProjects = projects.reduce((acc, project) => {
   if (!acc[project.category]) acc[project.category] = [];
@@ -75,7 +77,15 @@ const groupedProjects = projects.reduce((acc, project) => {
 */
 const Project = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleOpen = (project) => {
+    setSelectedProject(project);
+    setOpen(true);
+  };
+  
   return (
     <Box className={classes.mainContainer}>
       <Typography variant="h4" align="center" className={classes.heading}>
@@ -102,16 +112,42 @@ const Project = () => {
                     </Box>
                   </CardContent>
                   <Box className={classes.actions}>
-                    <Button size="small" color="primary" variant="contained">
+                    <Button size="small" color="primary" variant="contained" onClick={() => handleOpen(project)}>
                       Show More
                     </Button>
                   </Box>
                 </Card>
+                
               </Grid>
+              
             ))}
           </Grid>
         
+          {/* Single reusable modal */}
+          {selectedProject && (
+            <ProjectShowMore
+              open={open}
+              onClose={() => setOpen(false)}
+              title={selectedProject.name}
+              description={selectedProject.description}
+              skills={selectedProject.skills}
+              duration={selectedProject.duration}
+              role={selectedProject.role}
+              category={selectedProject.category}
+              /*actions={
+                <>
+                  <Button onClick={() => setOpen(false)} color="error" variant="outlined">
+                    Cancel
+                  </Button>
+                  <Button onClick={() => setOpen(false)} color="primary" variant="contained">
+                    Ok
+                  </Button>
+                </>
+              }*/
+            />
+            )}
     </Box>
+    
   );
 };
 
