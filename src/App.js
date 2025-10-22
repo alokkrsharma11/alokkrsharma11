@@ -28,7 +28,7 @@ const titles = {
   '/skills': "Skills",
   '/achievements': "Achievements",
   '/project': "Projects",
-  '/highlights': "Highlights",
+  '/summary': "Career Summary",
   '/contact': "Contact",
 };
 
@@ -55,12 +55,12 @@ const title = titles[currentContext] || "Home";
       <Navbar title={title}/>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/summary" component={CareerHighlights} />
+        <Route exact path="/project" component={Project} />
         <Route exact path="/experience" component={Experience} />
         <Route exact path="/education" component={Education} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/achievements" component={Achievements} />
-        <Route exact path="/project" component={Project} />
-        <Route exact path="/highlights" component={CareerHighlights} />
         <Route exact path="/contact" component={Contact} />
       </Switch>
       </ThemeProvider>

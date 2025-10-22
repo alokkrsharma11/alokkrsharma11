@@ -37,6 +37,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import avatar from "../Photo.png";
 import Footer from "../components/Footer";
 import { ArrowForward } from "@material-ui/icons";
+import briefcaseIcon from '../images/icon-transparent.png';
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -79,12 +80,12 @@ const menuItems = [
   { listIcon: <ContactMail />, listText: "Contact", listPath: "/contact" },*/
    // 🔹 Added sections
   { listIcon: <HomeIcon />, listText: "Home", listPath: "/" },
+  { listIcon: <DescriptionIcon />, listText: "Career Summary", listPath: "/summary" },
   { listIcon: <PersonIcon />, listText: "Projects", listPath: "/project" },
   { listIcon: <WorkIcon />, listText: "Experience", listPath: "/experience" },
   { listIcon: <SchoolIcon />, listText: "Education", listPath: "/education" },
   { listIcon: <BuildIcon />, listText: "Skills", listPath: "/skills" },
   { listIcon: <EmojiEventsIcon />, listText: "Achievements", listPath: "/achievements" },
-  { listIcon: <DescriptionIcon />, listText: "Highlights", listPath: "/highlights" },
   { listIcon: <MailIcon />, listText: "Contact", listPath: "/contact" },
 ];
 
@@ -123,7 +124,13 @@ const Navbar = ({title}) => {
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
             <Typography variant="h5" className={classes.title}>
-              About Me
+              <img
+                src={briefcaseIcon}
+                alt="Briefcase Icon"
+                width="30"
+                height="30"
+                style={{ marginRight: "8px", verticalAlign: "middle" }}
+              /> About Me
             </Typography>
             <IconButton onClick={() => setOpen(true)}>
               <ArrowForward className={classes.arrow} />

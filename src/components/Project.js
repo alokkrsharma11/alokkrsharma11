@@ -51,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
   },
   name: {
     color: "tan",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: "20px",
   },
   heading: {
     color: "tomato",
@@ -60,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     marginBottom: theme.spacing(1),
+    fontSize: "14px",
   },
   actions: {
     display: "flex",

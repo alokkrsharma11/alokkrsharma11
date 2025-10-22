@@ -9,9 +9,9 @@ import avatar from "../Photo.png";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
-    width: theme.spacing(15),
-    height: theme.spacing(15),
-    margin: theme.spacing(1),
+    width: theme.spacing(25),
+    height: theme.spacing(25),
+    margin: theme.spacing(2),
   },
   title: {
     color: "tomato",
