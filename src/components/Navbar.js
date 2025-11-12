@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     background: "#19191aff",
     margin: 0,
-    textAlign: "right"
+    textAlign: "right",
   },
   arrow: {
     color: "tomato",
@@ -121,7 +121,7 @@ const Navbar = ({title}) => {
   return (
     <React.Fragment>
       <Box component="nav">
-        <AppBar position="static" className={classes.appbar}>
+        <AppBar position="fixed" className={classes.appbar}>
           <Toolbar>
             <Typography variant="h5" className={classes.title}>
               <img
