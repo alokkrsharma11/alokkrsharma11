@@ -121,7 +121,7 @@ const Navbar = ({title}) => {
   return (
     <React.Fragment>
       <Box component="nav">
-        <AppBar position="fixed" className={classes.appbar}>
+        <AppBar position="static" className={classes.appbar}>
           <Toolbar>
             <Typography variant="h5" className={classes.title}>
               <img

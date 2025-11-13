@@ -14,6 +14,7 @@ import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import "./App.css";
 import CareerHighlights from "./components/CareerHighlights";
+import { Box } from "@material-ui/core";
 
 function ContextPathReader() {
   const location = useLocation();
@@ -52,7 +53,20 @@ const title = titles[currentContext] || "Home";
     <React.Fragment>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-      <Navbar title={title}/>
+      
+      {/* Fixed Navbar */}
+        <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1100 }}>
+          <Navbar title={title} />
+        </Box>
+
+      {/* Scrollable content area below the Navbar */}
+        <Box
+          sx={{
+            mt: "64px", // Adjust if your Navbar height differs
+            height: "calc(100vh - 64px)",
+            overflowY: "auto",
+          }}
+        >
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/summary" component={CareerHighlights} />
@@ -63,6 +77,7 @@ const title = titles[currentContext] || "Home";
         <Route exact path="/achievements" component={Achievements} />
         <Route exact path="/contact" component={Contact} />
       </Switch>
+      </Box>
       </ThemeProvider>
     </React.Fragment>
   );
