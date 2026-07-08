@@ -1,4 +1,26 @@
 const achievements = [
+  // 🔹 AI & Generative AI
+  {
+    title: "Anthropic Claude Architect Foundation",
+    org: "Anthropic",
+    year: "2025",
+    description: "Certified expertise in designing and architecting solutions using Anthropic's Claude AI models.",
+    badges: ["AI", "GenAI", "Claude"],
+    stars: 5,
+    expiry: "--",
+    renewed: "--"
+  },
+  {
+    title: "Databricks Generative AI Fundamentals",
+    org: "Databricks",
+    year: "2025",
+    description: "Proficiency in building and deploying Generative AI solutions on the Databricks Lakehouse platform.",
+    badges: ["Databricks", "GenAI", "AI"],
+    stars: 5,
+    expiry: "--",
+    renewed: "--"
+  },
+
   // 🔹 Microsoft Azure
   {
     title: "AZ-900: Microsoft Azure Fundamentals",
@@ -8,6 +30,16 @@ const achievements = [
     badges: ["Azure", "Cloud"],
     stars: 4,
     expiry: "--",
+    renewed: "--"
+  },
+  {
+    title: "AZ-104: Microsoft Azure Administrator",
+    org: "Microsoft",
+    year: "2025",
+    description: "Certified skills in managing Azure subscriptions, identities, infrastructure, and cloud resources.",
+    badges: ["Azure", "Administrator"],
+    stars: 4,
+    expiry: "2027",
     renewed: "--"
   },
   {
