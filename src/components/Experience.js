@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "9.375rem",
     margin: "0 3rem 0 auto",
     fontSize: "1.8rem",
-    color: "var(--primary-text)",
+    color: "var(--on-accent)",
     background: "var(--accent)",
     lineHeight: 1,
     padding: "0.5rem 1rem",

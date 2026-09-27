@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: theme.spacing(2),
-    color: "var(--primary-text)",
+    color: "var(--on-accent)",
     backgroundColor: "var(--accent)",
     borderColor: "var(--secondary)",
     transition: "0.3s ease",

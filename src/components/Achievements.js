@@ -60,12 +60,14 @@ const useStyles = makeStyles((theme) => ({
   },
   badges: {
     marginTop: theme.spacing(1),
-    "& > *": {
-      marginRight: theme.spacing(1),
-      background: "var(--accent)",
-      color: "yellow",
-    },
-
+    display: "flex",
+    flexWrap: "wrap",
+    gap: theme.spacing(0.5),
+  },
+  badgeChip: {
+    backgroundColor: "var(--accent) !important",
+    color: "var(--on-accent) !important",
+    fontWeight: "bold",
   },
   tabRoot: {
     color: "var(--secondary)",
@@ -157,7 +159,7 @@ const Achievements = () => {
                   {ach.badges && (
                     <div className={classes.badges}>
                       {ach.badges.map((badge, idx) => (
-                        <Chip key={idx} label={badge} size="small" className={classes.tabRoot} />
+                        <Chip key={idx} label={badge} size="small" className={classes.badgeChip} />
                       ))}
                     </div>
                   )}
@@ -196,7 +198,7 @@ const Achievements = () => {
                       {ach.badges && (
                             <div className={classes.badges}>
                             {ach.badges.map((badge, idx) => (
-                                <Chip key={idx} label={badge} size="small" className={classes.tabRoot} />
+                                <Chip key={idx} label={badge} size="small" className={classes.badgeChip} />
                             ))}
                             </div>
                         )}

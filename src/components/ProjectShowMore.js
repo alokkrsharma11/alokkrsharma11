@@ -29,7 +29,7 @@ export default function ProjectShowMore({ open, onClose, title, description, act
         <Typography variant="h6" component="h2" style={{color: "var(--secondary)", fontWeight: "bold", marginBottom:2, fontSize: "24px"}}>
           {title}
           <Chip label={category} size="small" color="primary"
-            style={{fontWeight: "bold", color: "var(--primary-text)", marginBottom:2, marginLeft:10, backgroundColor: "var(--accent)", alignItems: "right"}}/>
+            style={{fontWeight: "bold", color: "var(--on-accent)", marginBottom:2, marginLeft:10, backgroundColor: "var(--accent)", alignItems: "right"}}/>
         </Typography>
 
         {/* Role */}

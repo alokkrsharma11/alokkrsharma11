@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     margin: theme.spacing(0.5),
-    backgroundColor: "var(--accent)",
-    color: "var(--primary-text)",
+    backgroundColor: "var(--accent) !important",
+    color: "var(--on-accent) !important",
     fontWeight: "bold",
   },
   tableContainer: {

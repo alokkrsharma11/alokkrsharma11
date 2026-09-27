@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   badge: {
     margin: theme.spacing(0.5),
-    background: "var(--accent)",
-    color: "var(--primary-text)",
+    backgroundColor: "var(--accent) !important",
+    color: "var(--on-accent) !important",
     fontWeight: "bold",
   },
   sectionTitle: {

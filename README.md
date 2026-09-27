@@ -86,6 +86,11 @@ I'm passionate about designing performant, reliable systems and fostering techni
 
 My interactive portfolio is built with React and Material UI, and features a **multi-theme UI** with a live theme switcher — choose from Crimson Night, Ocean Depth, Forest Dusk, Midnight Orchid, or Slate Pro directly from the navigation drawer.
 
+**Theming highlights:**
+- All themes share the same atmospheric background image for visual consistency
+- Each theme applies its own colour palette (navbar, drawer, cards, accents) on top of the shared background
+- A dedicated `--on-accent` colour variable per theme ensures text on accent-coloured elements (chips, badges, buttons, year labels) always meets readability contrast requirements
+
 ## 📫 Let's Connect
 
 - 📧 Email: alokkrsharma.in@gmail.com  

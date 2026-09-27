@@ -54,13 +54,8 @@ const title = titles[currentContext] || "Home";
 
 const { activeTheme } = usePortfolioTheme();
 useEffect(() => {
-  if (activeTheme.bodyBg) {
-    document.body.style.background = activeTheme.bodyBg;
-    document.body.style.backgroundAttachment = "fixed";
-  } else {
-    document.body.style.background = `url(${coffeeApple}) no-repeat center center fixed`;
-    document.body.style.backgroundSize = "cover";
-  }
+  document.body.style.background = `url(${coffeeApple}) no-repeat center center fixed`;
+  document.body.style.backgroundSize = "cover";
 }, [activeTheme]);
   return (
     <React.Fragment>

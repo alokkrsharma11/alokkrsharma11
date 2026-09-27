@@ -3,17 +3,17 @@ const achievements = [
   {
     title: "Anthropic Claude Architect Foundation",
     org: "Anthropic",
-    year: "2025",
+    year: "Apr 2026",
     description: "Certified expertise in designing and architecting solutions using Anthropic's Claude AI models.",
     badges: ["AI", "GenAI", "Claude"],
     stars: 5,
-    expiry: "--",
+    expiry: "Oct 2026",
     renewed: "--"
   },
   {
     title: "Databricks Generative AI Fundamentals",
     org: "Databricks",
-    year: "2025",
+    year: "2026",
     description: "Proficiency in building and deploying Generative AI solutions on the Databricks Lakehouse platform.",
     badges: ["Databricks", "GenAI", "AI"],
     stars: 5,
@@ -48,7 +48,7 @@ const achievements = [
     year: "2024",
     description: "Hands-on expertise in building, deploying, and maintaining cloud apps.",
     badges: ["Azure", "Developer"],
-    stars: 5,
+    stars: 4,
     expiry: "2026",
     renewed: "2025"
   },
@@ -68,7 +68,7 @@ const achievements = [
     year: "2024",
     description: "Designing and implementing data solutions on Azure.",
     badges: ["Azure", "Data Engineering"],
-    stars: 5,
+    stars: 4,
     expiry: "2026",
     renewed: "2025"
   },
@@ -120,7 +120,7 @@ const achievements = [
     year: "2023",
     description: "Certified expertise in OCI solution architecture.",
     badges: ["Oracle", "Architecture"],
-    stars: 5,
+    stars: 4,
     expiry: "--",
     renewed: "--"
   },
@@ -130,7 +130,7 @@ const achievements = [
     year: "2023",
     description: "Strong foundation in Oracle Cloud data management.",
     badges: ["Oracle", "Data"],
-    stars: 4,
+    stars: 3,
     expiry: "2025",
     renewed: "2024"
   },
@@ -140,7 +140,7 @@ const achievements = [
     year: "2024",
     description: "Strong foundation in Oracle Cloud data management.",
     badges: ["Oracle", "Data"],
-    stars: 4,
+    stars: 3,
     expiry: "2026",
     renewed: "2025"
   },
@@ -150,7 +150,7 @@ const achievements = [
     year: "2025",
     description: "Strong foundation in Oracle Cloud data management.",
     badges: ["Oracle", "Data"],
-    stars: 4,
+    stars: 3,
     expiry: "2027",
     renewed: "--"
   },
