@@ -12,50 +12,40 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-//import ArrowBack from "@material-ui/icons/ArrowBack";
-//import AssignmentInd from "@material-ui/icons/AssignmentInd";
-// Dashboard/Home
 import HomeIcon from "@material-ui/icons/Home";
-// About
 import PersonIcon from "@material-ui/icons/Person";
-// Experience
 import WorkIcon from "@material-ui/icons/Work";
-// Education
 import SchoolIcon from "@material-ui/icons/School";
-// Skills
 import BuildIcon from "@material-ui/icons/Build";
-// Achievements
 import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
-// Blog / Articles
 import DescriptionIcon from "@material-ui/icons/Description";
-// Contact
 import MailIcon from "@material-ui/icons/Mail";
-//import Home from "@material-ui/icons/Home";
-//import Apps from "@material-ui/icons/Apps";
-//import ContactMail from "@material-ui/icons/ContactMail";
 import { makeStyles } from "@material-ui/core/styles";
 import avatar from "../Photo.png";
 import Footer from "../components/Footer";
 import { ArrowForward } from "@material-ui/icons";
 import briefcaseIcon from '../images/icon-transparent.png';
+import { usePortfolioTheme } from "../context/ThemeContext";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    background: "#19191aff",
+    background: "var(--navbar-bg)",
     margin: 0,
     textAlign: "right",
   },
   arrow: {
-    color: "tomato",
+    color: "var(--accent)",
     align: "right"
   },
   title: {
-    color: "tan",
+    color: "var(--secondary)",
   },
   menuSliderContainer: {
     width: 320,
-    background: "#511",
+    background: "var(--drawer-bg)",
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
   avatar: {
     display: "block",
@@ -64,21 +54,46 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(13),
   },
   listItem: {
-    color: "tan",
+    color: "var(--secondary)",
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     textTransform: "camelcase",
+  },
+  themeSwitcherContainer: {
+    padding: "1rem",
+    borderTop: "1px solid rgba(255,255,255,0.1)",
+    marginTop: "auto",
+  },
+  themeLabel: {
+    color: "var(--secondary)",
+    fontSize: "0.75rem",
+    marginBottom: "0.5rem",
+    textTransform: "uppercase",
+    letterSpacing: "0.1em",
+  },
+  swatchRow: {
+    display: "flex",
+    gap: "8px",
+    flexWrap: "wrap",
+  },
+  swatch: {
+    width: 28,
+    height: 28,
+    borderRadius: "50%",
+    cursor: "pointer",
+    border: "2px solid transparent",
+    transition: "border 0.2s, transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.2)",
+    },
+  },
+  swatchActive: {
+    border: "2px solid var(--primary-text)",
   },
 }));
 
 const menuItems = [
-  /*
-  { listIcon: <Home />, listText: "Home", listPath: "/" },
-  { listIcon: <AssignmentInd />, listText: "Experience", listPath: "/resume" },
-  { listIcon: <Apps />, listText: "Projects", listPath: "/portfolio" },
-  { listIcon: <ContactMail />, listText: "Contact", listPath: "/contact" },*/
-   // 🔹 Added sections
   { listIcon: <HomeIcon />, listText: "Home", listPath: "/" },
   { listIcon: <DescriptionIcon />, listText: "Career Summary", listPath: "/summary" },
   { listIcon: <PersonIcon />, listText: "Projects", listPath: "/project" },
@@ -91,30 +106,46 @@ const menuItems = [
 
 const Navbar = ({title}) => {
   const [open, setOpen] = useState(false);
-
   const classes = useStyles();
+  const { activeTheme, selectTheme, themes } = usePortfolioTheme();
 
   const sideList = () => (
     <Box className={classes.menuSliderContainer} component="div">
       <Avatar className={classes.avatar} src={avatar} alt="Alok Kumar Sharma" />
       <Divider />
-      <List>
-        {menuItems.map((item, i) => (
-          <ListItem
-            button
-            key={i}
-            className={classes.listItem}
-            onClick={() => setOpen(false)}
-            component={Link}
-            to={item.listPath}
-          >
-            <ListItemIcon className={classes.listItem}>
-              {item.listIcon}
-            </ListItemIcon>
-            <ListItemText primary={item.listText} />
-          </ListItem>
-        ))}
-      </List>
+      <Box sx={{ flexGrow: 1, overflowY: "auto" }}>
+        <List>
+          {menuItems.map((item, i) => (
+            <ListItem
+              button
+              key={i}
+              className={classes.listItem}
+              onClick={() => setOpen(false)}
+              component={Link}
+              to={item.listPath}
+            >
+              <ListItemIcon className={classes.listItem}>
+                {item.listIcon}
+              </ListItemIcon>
+              <ListItemText primary={item.listText} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+      <Box className={classes.themeSwitcherContainer}>
+        <Typography className={classes.themeLabel}>Theme</Typography>
+        <Box className={classes.swatchRow}>
+          {Object.values(themes).map((t) => (
+            <Box
+              key={t.id}
+              className={`${classes.swatch} ${activeTheme.id === t.id ? classes.swatchActive : ""}`}
+              style={{ backgroundColor: t.swatch }}
+              onClick={() => selectTheme(t.id)}
+              title={t.name}
+            />
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
 
@@ -123,7 +154,12 @@ const Navbar = ({title}) => {
       <Box component="nav">
         <AppBar position="static" className={classes.appbar}>
           <Toolbar>
-            <Typography variant="h5" className={classes.title}>
+            <Typography
+              variant="h5"
+              className={classes.title}
+              onClick={() => setOpen(true)}
+              style={{ cursor: "pointer" }}
+            >
               <img
                 src={briefcaseIcon}
                 alt="Briefcase Icon"

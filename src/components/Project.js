@@ -16,13 +16,13 @@ import ProjectShowMore from "./ProjectShowMore";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    background: "#233",
+    background: "var(--page-bg)",
     minHeight: "100vh",
     padding: theme.spacing(1),
   },
   cardContainer: {
-    background: "#2c2c2c",
-    color: "white",
+    background: "var(--card-bg)",
+    color: "var(--primary-text)",
     margin: theme.spacing(2),
     borderRadius: "12px",
     boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   badge: {
     margin: theme.spacing(0.5),
-    background: "tomato",
-    color: "white",
+    background: "var(--accent)",
+    color: "var(--primary-text)",
     fontWeight: "bold",
   },
   sectionTitle: {
@@ -47,15 +47,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textAlign: "center",
     textTransform: "uppercase",
-    color: "tan",
+    color: "var(--secondary)",
   },
   name: {
-    color: "tan",
+    color: "var(--secondary)",
     fontWeight: "bold",
     fontSize: "20px",
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     padding: "3rem 0",
     textTransform: "uppercase",
   },
@@ -93,7 +93,7 @@ const Project = () => {
       <Typography variant="h4" align="center" className={classes.heading}>
         My Projects
       </Typography>
-      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
+      <Divider style={{ background: "var(--secondary)", marginBottom: "2rem" }} />
       
           <Grid container justifyContent="center">
             {projects.map((project, index) => (

@@ -9,15 +9,15 @@ import { LinkedIn } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   bottomNavContainer: {
-    background: "#222",
+    background: "var(--footer-bg)",
     height: "55px",
     overflow: "hidden",
   },
   root: {
     "& .MuiSvgIcon-root": {
-      fill: "tan",
+      fill: "var(--secondary)",
       "&:hover": {
-        fill: "tomato",
+        fill: "var(--accent)",
         fontSize: "1.8rem",
       },
     },

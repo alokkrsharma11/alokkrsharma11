@@ -24,12 +24,12 @@ import { skills } from "../data/skills-data";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    background: "#233",
+    background: "var(--page-bg)",
     minHeight: "100vh",
     padding: theme.spacing(3),
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     padding: "2rem 0",
     textTransform: "uppercase",
     textAlign: "center",
@@ -39,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textAlign: "center",
     textTransform: "uppercase",
-    color: "tan",
+    color: "var(--secondary)",
   },
   card: {
-    background: "#2b2b2b",
-    color: "#fff",
+    background: "var(--card-bg)",
+    color: "var(--primary-text)",
     borderRadius: "12px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
     margin: theme.spacing(2),
@@ -56,35 +56,35 @@ const useStyles = makeStyles((theme) => ({
   },
   skillName: {
     fontWeight: "bold",
-    color: "tan",
+    color: "var(--secondary)",
   },
   progress: {
     height: "8px",
     borderRadius: "4px",
     marginTop: theme.spacing(1),
-    backgroundColor: "#444",
+    backgroundColor: "var(--card-bg-alt)",
   },
   tableContainer: {
-    background: "#2b2b2b",
+    background: "var(--card-bg)",
     borderRadius: "12px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
     marginTop: theme.spacing(4),
   },
   tableHeader: {
-    background: "#444",
+    background: "var(--card-bg-alt)",
   },
   tableCell: {
-    color: "tan",
+    color: "var(--secondary)",
     fontWeight: "bold",
   },
   tabRoot: {
-    color: "tan",
+    color: "var(--secondary)",
     fontWeight: "bold",
   },
   chip: {
     marginLeft: theme.spacing(1),
-    backgroundColor: "#444",
-    color: "white",
+    backgroundColor: "var(--card-bg-alt)",
+    color: "var(--primary-text)",
     fontWeight: "bold",
   },
 }));
@@ -129,7 +129,7 @@ const Skills = () => {
       <Typography variant="h4" className={classes.heading}>
         My Skillset
       </Typography>
-      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
+      <Divider style={{ background: "var(--secondary)", marginBottom: "2rem" }} />
 
       {/* Tabs */}
       <Tabs
@@ -241,10 +241,10 @@ const Skills = () => {
             onChangeRowsPerPage={handleChangeRowsPerPage}
             sx={{
             "& .MuiTablePagination-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             },
             "& .MuiSvgIcon-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             }
             }}
           />

@@ -48,7 +48,7 @@ const InfoSection = ({ title, data, columns, classes }) => {
       <Typography variant="h4" className={classes.heading}>
         {title}
       </Typography>
-      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
+      <Divider style={{ background: "var(--secondary)", marginBottom: "2rem" }} />
 
       {/* Tabs */}
       <Tabs
@@ -132,10 +132,10 @@ const InfoSection = ({ title, data, columns, classes }) => {
             onChangeRowsPerPage={handleChangeRowsPerPage}
             sx={{
             "& .MuiTablePagination-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             },
             "& .MuiSvgIcon-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             }
             }}
           />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Home from "./components";
@@ -15,6 +15,8 @@ import Achievements from "./components/Achievements";
 import "./App.css";
 import CareerHighlights from "./components/CareerHighlights";
 import { Box } from "@material-ui/core";
+import { usePortfolioTheme } from "./context/ThemeContext";
+import coffeeApple from "./coffee-apple.jpg";
 
 function ContextPathReader() {
   const location = useLocation();
@@ -49,6 +51,17 @@ function App() {
 
 const currentContext = ContextPathReader();
 const title = titles[currentContext] || "Home";
+
+const { activeTheme } = usePortfolioTheme();
+useEffect(() => {
+  if (activeTheme.bodyBg) {
+    document.body.style.background = activeTheme.bodyBg;
+    document.body.style.backgroundAttachment = "fixed";
+  } else {
+    document.body.style.background = `url(${coffeeApple}) no-repeat center center fixed`;
+    document.body.style.backgroundSize = "cover";
+  }
+}, [activeTheme]);
   return (
     <React.Fragment>
       <CssBaseline />

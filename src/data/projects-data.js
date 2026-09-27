@@ -17,7 +17,7 @@ const projects = [
   },
   {
     name: "About Me (alokkrsharma)",
-    description: `This is a portfolio which describe my journey so far including my Education, Skills and justify my 14+ years of Experience while I worked on different projects of different domains. It will also showcase my achievement through these many years and you know what this is the same site where you are currently!`,
+    description: `This is a portfolio which describe my journey so far including my Education, Skills and justify my 15+ years of Experience while I worked on different projects of different domains. It will also showcase my achievement through these many years and you know what this is the same site where you are currently!`,
     category: "Personal",
     image: project1,
     skills: ["ReactJS", "Material UI", "JavaScript", "CSS"],

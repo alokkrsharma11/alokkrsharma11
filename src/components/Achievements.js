@@ -23,19 +23,19 @@ import { achievements } from "../data/achievements-data";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    background: "#233",
+    background: "var(--page-bg)",
     minHeight: "100vh",
     padding: theme.spacing(3),
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     padding: "2rem 0",
     textTransform: "uppercase",
     textAlign: "center",
   },
   card: {
-    background: "#2b2b2b",
-    color: "#fff",
+    background: "var(--card-bg)",
+    color: "var(--primary-text)",
     borderRadius: "12px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
     margin: theme.spacing(2),
@@ -48,40 +48,40 @@ const useStyles = makeStyles((theme) => ({
   },
   achievementTitle: {
     fontWeight: "bold",
-    color: "tan",
+    color: "var(--secondary)",
   },
   orgYear: {
     fontWeight: "bold",
-    color: "tomato",
+    color: "var(--accent)",
   },
   year: {
     fontWeight: "bold",
-    color: "white",
+    color: "var(--primary-text)",
   },
   badges: {
     marginTop: theme.spacing(1),
     "& > *": {
       marginRight: theme.spacing(1),
-      background: "tomato",
+      background: "var(--accent)",
       color: "yellow",
     },
-    
+
   },
   tabRoot: {
-    color: "tan",
+    color: "var(--secondary)",
     fontWeight: "bold",
   },
   tableContainer: {
-    background: "#2b2b2b",
+    background: "var(--card-bg)",
     borderRadius: "12px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
     marginTop: theme.spacing(4),
   },
   tableHeader: {
-    background: "#444",
+    background: "var(--card-bg-alt)",
   },
   tableCell: {
-    color: "tan",
+    color: "var(--secondary)",
     fontWeight: "bold",
   },
   star: {
@@ -127,7 +127,7 @@ const Achievements = () => {
       <Typography variant="h4" className={classes.heading}>
         My Achievements
       </Typography>
-      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
+      <Divider style={{ background: "var(--secondary)", marginBottom: "2rem" }} />
 
       {/* Tabs */}
       <Tabs value={tabValue} onChange={handleChange} indicatorColor="secondary" centered>
@@ -213,7 +213,7 @@ const Achievements = () => {
           </TableContainer>
 
           {/* Pagination */}
-          <TablePagination style={{color: 'white'}}
+          <TablePagination style={{color: 'var(--primary-text)'}}
             rowsPerPageOptions={[5, 10, 15]}
             component="div"
             count={sortedAchievements.length}
@@ -223,10 +223,10 @@ const Achievements = () => {
             onChangeRowsPerPage={handleChangeRowsPerPage}
             sx={{
             "& .MuiTablePagination-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             },
             "& .MuiSvgIcon-root": {
-              color: "#d2b48c !important",  
+              color: "var(--secondary) !important",
             }
             }}
           />

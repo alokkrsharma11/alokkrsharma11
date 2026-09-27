@@ -11,19 +11,19 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    background: "#233",
+    background: "var(--page-bg)",
     minHeight: "100vh",
     padding: theme.spacing(3),
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     padding: "2rem 0",
     textTransform: "uppercase",
     textAlign: "center",
   },
   card: {
-    background: "#2b2b2b",
-    color: "#fff",
+    background: "var(--card-bg)",
+    color: "var(--primary-text)",
     borderRadius: "12px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
     margin: theme.spacing(2),
@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "bold",
-    color: "tan",
+    color: "var(--secondary)",
   },
   subText: {
-    color: "tomato",
+    color: "var(--accent)",
     fontSize: "0.9rem",
   },
 }));
@@ -79,7 +79,7 @@ const Education = () => {
       <Typography variant="h4" className={classes.heading}>
         My Education
       </Typography>
-      <Divider style={{ background: "tan", marginBottom: "2rem" }} />
+      <Divider style={{ background: "var(--secondary)", marginBottom: "2rem" }} />
 
       <Grid container justifyContent="center" spacing={3}>
         {education.map((edu, index) => (
@@ -97,7 +97,7 @@ const Education = () => {
                 </Typography>
                 <Typography
                   variant="body2"
-                  style={{ marginTop: "0.5rem", color: "#ddd" }}
+                  style={{ marginTop: "0.5rem", color: "var(--primary-text)" }}
                 >
                   {edu.details}
                 </Typography>

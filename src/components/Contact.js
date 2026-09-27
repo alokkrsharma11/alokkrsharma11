@@ -11,7 +11,7 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   contactContainer: {
-    background: "linear-gradient(135deg, #233 90%)",
+    background: "linear-gradient(135deg, var(--page-bg) 90%)",
     minHeight: "100vh",
     display: "flex",
     alignItems: "center",
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(5),
   },
   card: {
-    background: "#2b2b2b",
+    background: "var(--card-bg)",
     borderRadius: "16px",
     padding: theme.spacing(5),
     boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   heading: {
-    color: "tomato",
+    color: "var(--accent)",
     textAlign: "center",
     textTransform: "uppercase",
     marginBottom: theme.spacing(3),
@@ -43,24 +43,24 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   input: {
-    color: "#fff",
+    color: "var(--primary-text)",
   },
   button: {
     marginTop: theme.spacing(2),
-    color: "#fff",
-    backgroundColor: "tomato",
-    borderColor: "tan",
+    color: "var(--primary-text)",
+    backgroundColor: "var(--accent)",
+    borderColor: "var(--secondary)",
     transition: "0.3s ease",
     "&:hover": {
       color: "#000",
-      backgroundColor: "tan",
+      backgroundColor: "var(--secondary)",
     },
   },
   field: {
     margin: theme.spacing(2, 0),
   },
   divider: {
-    backgroundColor: "tomato",
+    backgroundColor: "var(--accent)",
     width: "2px",
     height: "auto",
     //margin: "auto",
@@ -69,11 +69,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   personalText: {
-    color: "tan",
+    color: "var(--secondary)",
     textAlign: "left",
     lineHeight: 1.5,
     "& a": {
-      color: "tomato",
+      color: "var(--accent)",
       textDecoration: "none",
       "&:hover": { textDecoration: "underline" },
     },
@@ -97,20 +97,20 @@ const useStyles = makeStyles((theme) => ({
 const InputField = withStyles({
   root: {
     "& label.Mui-focused": {
-      color: "tomato",
+      color: "var(--accent)",
     },
     "& label": {
-      color: "tan",
+      color: "var(--secondary)",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "tan",
+        borderColor: "var(--secondary)",
       },
       "&:hover fieldset": {
-        borderColor: "tomato",
+        borderColor: "var(--accent)",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "tomato",
+        borderColor: "var(--accent)",
       },
     },
     ".MuiGrid-item": {
@@ -259,7 +259,7 @@ const Contact = () => {
               <Typography
                 variant="body1"
                 style={{
-                  color: "tan",
+                  color: "var(--secondary)",
                   marginTop: "1rem",
                   textAlign: "center",
                   fontStyle: "italic",
